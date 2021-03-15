@@ -1,9 +1,10 @@
-# ripple
+# Ripple
 
-# Install Instructions
+Contributors: Eric Li, Junyu Wang, Kerui Wang, Penghai Wei, Sunjun Gu, Titus Smith
 
-npm i @react-navigation/native react-native @react-navigation/stack @react-navigation/bottom-tabs @babel/core react-native-screens react-native-gesture-handler
+# Installation and Run Instructions
 
-# Run Commands
-
+```
+npm install
 npm start
+```
