@@ -1,14 +1,63 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { NativeAppEventEmitter, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Home from "./Client/Home";
+import Report from "./Client/Report";
+import Map from "./Client/Map";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createStackNavigator();
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+  }
+
+  createRippleTabNavigator(props) {
+    const Tab = createBottomTabNavigator();
+    return (
+      <Tab.Navigator>
+      <Tab.Screen name="Create Report" options={{
+        tabBarIcon: () => {
+          let iconName = `md-person`;
+          return <Ionicons name={iconName} size={25}/>;
+        }
+      }}>
+        {props => <Report {...props} />}</Tab.Screen>
+    <Tab.Screen name="Incident Map" options={{
+        tabBarIcon: () => {
+          let iconName = `md-home`;
+          return <Ionicons name={iconName} size={25}/>;
+        }
+      }}>{props => <Map {...props}  />}</Tab.Screen>
+    </Tab.Navigator>
+    );
+  }
+
+  render() {
+    return(
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name = "Home"
+          options={{title: 'Ripple'}}
+        >
+          {props => <Home {...props} />}
+          </Stack.Screen>
+        
+        <Stack.Screen name="Ripple"> 
+          {(props)=>this.createRippleTabNavigator(props)}
+        </Stack.Screen>
+      </Stack.Navigator>
+      </NavigationContainer>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
