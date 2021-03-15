@@ -1,17 +1,9 @@
 # ripple
 
-Instructions to run:
+# Install Instructions
 
-npm i @react-navigation/native
+npm i @react-navigation/native react-native @react-navigation/stack @react-navigation/bottom-tabs @babel/core react-native-screens react-native-gesture-handler
 
-npm i react-native
+# Run Commands
 
-npm install @react-navigation/stack
-
-npm install @react-navigation/bottom-tabs
-
-npm install @babel/core --save
-
-npm i react-native-screens
-
-npm i react-native-gesture-handler
+npm start
