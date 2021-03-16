@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import MapView from 'react-native-maps';
 
-export default class Map extends Component{
-  constructor(props) {
-    super(props)
-    this.state={
-    
+export default class Map extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
 
-    }
+	getInitialState() {
+		return {
+			region: {
+				latitude: 37.78825,
+				longitude: -122.4324,
+				latitudeDelta: 0.0922,
+				longitudeDelta: 0.0421,
+			},
+		};
+	}
 
-  }
+	onRegionChange(region) {
+		this.setState({ region });
+	}
 
-  componentDidMount(){
-    
-  }
-
-
-
-  render() {
-    
-      return(
-        <View style={{width: "50%", height :"95%", justifyContent: "center"
-        , alignSelf: "center", alignContent: "center", alignItems: "center"
-        }}>
-        
-        </View>
-      )
-  }
-
+	render() {
+		return (
+			<MapView
+				region={this.state.region}
+				onRegionChange={this.onRegionChange}
+			/>
+		);
+	}
 }
