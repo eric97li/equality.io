@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import {
+	TouchableOpacity,
+	TextInput,
+	StyleSheet,
+	View,
+	Text,
+	Dimensions,
+} from 'react-native';
 import MapView from 'react-native-maps';
-
+//https://snack.expo.io
 export default class Map extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
-	}
-
-	getInitialState() {
-		return {
+		this.state = {
 			region: {
 				latitude: 37.78825,
 				longitude: -122.4324,
@@ -24,11 +27,19 @@ export default class Map extends Component {
 	}
 
 	render() {
-		return (
-			<MapView
-				region={this.state.region}
-				onRegionChange={this.onRegionChange}
-			/>
-		);
+		return <MapView style={styles.map} initialRegion={this.state.region} />;
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	map: {
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').height,
+	},
+});
