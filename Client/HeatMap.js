@@ -7,10 +7,10 @@ import {
 	Text,
 	Dimensions,
 } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Heatmap } from 'react-native-maps';
 
 //https://snack.expo.io
-export default class Map extends Component {
+export default class HeatMap extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -22,12 +22,11 @@ export default class Map extends Component {
 			},
 			markers: [
 				{
-				latitude: 37.78825,
-				longitude: -122.4324,
-				  title: 'Foo Place',
-				  description: '1234 Foo Drive',
-				}
-			  ]
+					latitude: 37.78825,
+					longitude: -122.4324,
+					weight: 5,
+				},
+			],
 		};
 	}
 
@@ -36,20 +35,13 @@ export default class Map extends Component {
 	}
 
 	render() {
-		return <MapView style={styles.map} initialRegion={this.state.region}>
-			 {this.state.markers.map((marker, index) => { 
-			console.log(marker);
-			return (
-				<MapView.Marker
-				key = {index}
-				coordinate={{latitude: marker.latitude,
-				longitude: marker.longitude}}
-				title={"title"}
-				description={"description"}
-			 />
-		  )})}
-		
-			</MapView>;
+		return (
+			<></>
+			//Not implemented Yet
+			// <MapView style={styles.map} initialRegion={this.state.region}>
+			// 	<MapView.Heatmap points={this.state.markers} />
+			// </MapView>
+		);
 	}
 }
 
@@ -62,9 +54,7 @@ const styles = StyleSheet.create({
 	},
 	map: {
 		width: Dimensions.get('window').width,
-		// height: Dimensions.get('window').height,
 		height: '90%',
-
 	},
 });
 

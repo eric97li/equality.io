@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Home';
 import Report from './Report';
-import Map from './Map';
+import MapScreen from './MapScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,7 +29,7 @@ export default class App extends Component {
 							return <Ionicons name={iconName} size={25} />;
 						},
 					}}>
-					{(props) => <Map {...props} />}
+					{(props) => <MapScreen {...props} />}
 				</Tab.Screen>
 				<Tab.Screen
 					name='Create Report'
