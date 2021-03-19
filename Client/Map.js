@@ -7,7 +7,8 @@ import {
 	Text,
 	Dimensions,
 } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
+
 //https://snack.expo.io
 export default class Map extends Component {
 	constructor(props) {
@@ -16,9 +17,17 @@ export default class Map extends Component {
 			region: {
 				latitude: 37.78825,
 				longitude: -122.4324,
-				latitudeDelta: 0.0922,
-				longitudeDelta: 0.0421,
+				latitudeDelta: 0.2,
+				longitudeDelta: 0.2,
 			},
+			markers: [
+				{
+				latitude: 37.78825,
+				longitude: -122.4324,
+				  title: 'Foo Place',
+				  description: '1234 Foo Drive',
+				}
+			  ]
 		};
 	}
 
@@ -27,7 +36,20 @@ export default class Map extends Component {
 	}
 
 	render() {
-		return <MapView style={styles.map} initialRegion={this.state.region} />;
+		return <MapView style={styles.map} initialRegion={this.state.region}>
+			 {this.state.markers.map((marker, index) => { 
+			console.log(marker);
+			return (
+				<MapView.Marker
+				key = {index}
+				coordinate={{latitude: marker.latitude,
+				longitude: marker.longitude}}
+				title={"title"}
+				description={"description"}
+			 />
+		  )})}
+		
+			</MapView>;
 	}
 }
 
@@ -43,3 +65,6 @@ const styles = StyleSheet.create({
 		height: Dimensions.get('window').height,
 	},
 });
+
+// coordinate={{latitude: marker.latitude,
+// 	longitude: marker.longitude}}
