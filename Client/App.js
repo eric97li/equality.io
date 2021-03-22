@@ -22,16 +22,6 @@ export default class App extends Component {
 		return (
 			<Tab.Navigator>
 				<Tab.Screen
-					name='Incident Map'
-					options={{
-						tabBarIcon: () => {
-							let iconName = `md-map`;
-							return <Ionicons name={iconName} size={25} />;
-						},
-					}}>
-					{(props) => <MapScreen {...props} />}
-				</Tab.Screen>
-				<Tab.Screen
 					name='Create Report'
 					options={{
 						tabBarIcon: () => {
@@ -40,6 +30,16 @@ export default class App extends Component {
 						},
 					}}>
 					{(props) => <Report {...props} />}
+				</Tab.Screen>
+				<Tab.Screen
+					name='Incident Map'
+					options={{
+						tabBarIcon: () => {
+							let iconName = `md-map`;
+							return <Ionicons name={iconName} size={25} />;
+						},
+					}}>
+					{(props) => <MapScreen {...props} />}
 				</Tab.Screen>
 			</Tab.Navigator>
 		);
