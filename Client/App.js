@@ -49,9 +49,9 @@ export default class App extends Component {
 		return (
 			<NavigationContainer>
 				<Stack.Navigator>
-					{/* <Stack.Screen name='Home' options={{ title: 'Ripple' }}>
+					<Stack.Screen name='Home' options={{ title: 'Ripple' }}>
 						{(props) => <Home {...props} />}
-					</Stack.Screen> */}
+					</Stack.Screen>
 
 					<Stack.Screen name='Ripple'>
 						{(props) => this.createRippleTabNavigator(props)}
