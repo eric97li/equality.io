@@ -8,53 +8,47 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from './Home';
 import Report from './Report';
 import MapScreen from './MapScreen';
-
+import BottomTabContainer from './BottomTabContainer';
 const Stack = createStackNavigator();
 
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { currentTabScreen: 'meal' };
+		this.setCurrentTabScreen = this.setCurrentTabScreen.bind(this);
 	}
 
-	createRippleTabNavigator(props) {
-		const Tab = createBottomTabNavigator();
-		return (
-			<Tab.Navigator>
-				<Tab.Screen
-					name='Create Report'
-					options={{
-						tabBarIcon: () => {
-							let iconName = `md-person`;
-							return <Ionicons name={iconName} size={25} />;
-						},
-					}}>
-					{(props) => <Report {...props} />}
-				</Tab.Screen>
-				<Tab.Screen
-					name='Incident Map'
-					options={{
-						tabBarIcon: () => {
-							let iconName = `md-map`;
-							return <Ionicons name={iconName} size={25} />;
-						},
-					}}>
-					{(props) => <MapScreen {...props} />}
-				</Tab.Screen>
-			</Tab.Navigator>
-		);
+	setCurrentTabScreen(currentTabScreen) {
+		this.setState({ currentTabScreen });
 	}
+	component;
 
 	render() {
 		return (
 			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen name='Home' options={{ title: 'Ripple' }}>
-						{(props) => <Home {...props} />}
+						{(props) => (
+							<Home
+								{...props}
+								setCurrentTabScreen={(screenName) =>
+									this.setCurrentTabScreen(screenName)
+								}
+							/>
+						)}
 					</Stack.Screen>
-
+					{/* 
+					<Stack.Screen
+						name='Ripple'
+						component={BottomTabContainer}
+						initialScreen={5}></Stack.Screen> */}
 					<Stack.Screen name='Ripple'>
-						{(props) => this.createRippleTabNavigator(props)}
+						{(props) => (
+							<BottomTabContainer
+								{...props}
+								currentTabScreen={this.state.currentTabScreen}
+							/>
+						)}
 					</Stack.Screen>
 				</Stack.Navigator>
 			</NavigationContainer>

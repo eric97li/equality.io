@@ -59,6 +59,11 @@ export default class MapScreen extends React.Component {
 	componentDidMount() {
 		this.updateLocation('White House');
 	}
+	componentDidUpdate() {
+		if (this.props.currentTabScreen != 'Incident Map') {
+			this.props.navigate('Create Report');
+		}
+	}
 	updateLocation(searchString) {
 		console.log('Searching for' + searchString);
 		Geocoder.from(searchString)
