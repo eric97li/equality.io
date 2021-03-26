@@ -91,7 +91,7 @@ export default class MapScreen extends React.Component {
 			);
 		return (
 			<View>
-				<Text style={{ textAlign: 'center', fontSize: '30%' }}>
+				<Text style={{ textAlign: 'center', fontSize: 30 }}>
 					{this.getMonthByNumber()}
 				</Text>
 				<Slider
