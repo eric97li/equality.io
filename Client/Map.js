@@ -40,7 +40,10 @@ export default class Map extends Component {
 		if (this.props.region.latitude === undefined) return <></>;
 
 		return (
-			<MapView style={styles.map} region={this.props.region}>
+			<MapView
+				style={styles.map}
+				region={this.props.region}
+				provider={MapView.PROVIDER_GOOGLE}>
 				{this.state.markers.map((marker, index) => {
 					// console.log(marker);
 					return (
