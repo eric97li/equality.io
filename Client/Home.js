@@ -20,7 +20,7 @@ export default class Home extends Component {
 	aboutInfo() {}
 	disclaimerInfo() {}
 	render() {
-		console.log(this.props.x);
+		// console.log(this.props.x);
 		return (
 			<View
 				style={{
