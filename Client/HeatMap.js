@@ -1,62 +1,82 @@
-import React, { Component } from 'react';
+import React from 'react';
+import MapView from 'react-native-maps';
+
 import {
-	TouchableOpacity,
-	TextInput,
 	StyleSheet,
 	View,
 	Text,
 	Dimensions,
+	TouchableOpacity,
 } from 'react-native';
-import MapView, { Heatmap } from 'react-native-maps';
 
-//https://snack.expo.io
-export default class HeatMap extends Component {
+const { width, height } = Dimensions.get('window');
+
+const ASPECT_RATIO = width / height;
+const LATITUDE = 37.78825;
+const LONGITUDE = -122.4324;
+const LATITUDE_DELTA = 0.5;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+class HeatMap extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			region: {
-				latitude: 37.78825,
-				longitude: -122.4324,
-				latitudeDelta: 0.2,
-				longitudeDelta: 0.2,
-			},
-			markers: [
-				{
-					latitude: 37.78825,
-					longitude: -122.4324,
-					weight: 5,
-				},
-			],
+			points: this.getHeatMapPoints(100, true),
+			weightEnabled: false,
 		};
+		this.toggleWeightEnabled = this.toggleWeightEnabled.bind(this);
 	}
 
-	onRegionChange(region) {
-		this.setState({ region });
+	getHeatMapPoints = (size, withWeight = false) => {
+		const points = [];
+
+		for (let i = 0; i < size; i++) {
+			const pointData = {
+				latitude: LATITUDE + Math.random() / 50,
+				longitude: LONGITUDE + Math.random() / 50,
+			};
+			if (withWeight) {
+				pointData.weight = 100;
+
+				// pointData.weight = Math.round(Math.random() * 10 + 1);
+				// console.log(pointData.weight);
+			}
+			points.push(pointData);
+		}
+
+		return points;
+	};
+
+	async toggleWeightEnabled() {
+		console.log(this.state.weightEnabled);
+		await this.setState({ weightEnabled: !this.state.weightEnabled });
+		this.setState({
+			points: this.getHeatMapPoints(50, this.state.weightEnabled),
+		});
 	}
 
-	render() {
-		return (
-			<></>
-			//Not implemented Yet
-			// <MapView style={styles.map} initialRegion={this.state.region}>
-			// 	<MapView.Heatmap points={this.state.markers} />
-			// </MapView>
-		);
-	}
+	render = () => (
+		<MapView
+			provider={MapView.PROVIDER_GOOGLE}
+			style={styles.map}
+			initialRegion={{
+				latitude: LATITUDE,
+				longitude: LONGITUDE,
+				latitudeDelta: LATITUDE_DELTA,
+				longitudeDelta: LONGITUDE_DELTA,
+			}}>
+			<MapView.Heatmap points={this.state.points} />
+		</MapView>
+	);
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
+let styles = StyleSheet.create({
 	map: {
 		width: Dimensions.get('window').width,
-		height: '90%',
+		// height: Dimensions.get('window').height,
+		height: '75%',
 	},
 });
 
-// coordinate={{latitude: marker.latitude,
-// 	longitude: marker.longitude}}
+export default HeatMap;

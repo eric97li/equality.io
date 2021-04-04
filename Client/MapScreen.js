@@ -57,7 +57,7 @@ export default class MapScreen extends React.Component {
 		return monthNames[this.state.value % 12]; //if 2
 	}
 	componentDidMount() {
-		this.updateLocation('White House');
+		this.updateLocation('San Francisco');
 	}
 	componentDidUpdate() {
 		if (this.props.currentTabScreen != 'Incident Map') {
@@ -126,7 +126,11 @@ export default class MapScreen extends React.Component {
 					style={styles.button}
 					// onPress={() => this.setState({ heatmap: !heatmap })}>
 					onPress={() =>
-						this.setState({ heatmap: false }, alert('Heatmap not implemented'))
+						this.setState(
+							{
+								heatmap: !this.state.heatmap,
+							} /*, alert('Heatmap not implemented')*/
+						)
 					}>
 					<Text style={{ fontSize: 18, color: 'white' }}>
 						{this.getButtonText()}
