@@ -1,6 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { renderer, mount } from 'react-test-renderer';
 import MapScreen from '../MapScreen.js';
+import Map from '../Map.js';
 
 jest.useFakeTimers();
 
@@ -18,4 +19,18 @@ describe('<MapScreen/>', () => {
 		const month = date.toLocaleString('default', { month: 'long' });
 		expect(tree.children[0].children[0]).toBe(month);
 	});
+
+	//On button change, components are correct
+
+	//On slide, the month is accurate
+
+	//On slide, the filtering is accurate
 });
+
+describe('<Map/>', () => {
+	it('Map has one point for every single prop', async () => {});
+
+	//Map
+});
+
+//Heatmap has one point for every single prop
