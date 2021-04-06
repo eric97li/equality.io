@@ -195,7 +195,7 @@ export default class MapScreen extends React.Component {
 					/>
 					<TextInput
 						style={styles.input}
-						placeholder='User Nickname'
+						placeholder='Enter a Location'
 						onChangeText={(searchString) => {
 							this.setState({ searchString });
 						}}
