@@ -26,6 +26,7 @@ export default class MapScreen extends React.Component {
 			value: d.getMonth() + 12,
 			region: {},
 			searchString: '',
+			points: [],
 		};
 		this.getButtonText = this.getButtonText.bind(this);
 		this.getMonthByNumber = this.getMonthByNumber.bind(this);
@@ -64,6 +65,47 @@ export default class MapScreen extends React.Component {
 			this.props.navigate('Create Report');
 		}
 	}
+	fetchData(region) {
+		// console.log('fetching data for: ');
+		// console.log(region);
+		fetch('https://ripple506.herokuapp.com/getReportByLocation', {
+			method: 'POST',
+			headers: {
+				'Accept': '*/*',
+				'Connection': 'Keep-Alive',
+				'Content-Type': 'application/json',
+			},
+
+			body: JSON.stringify({
+				'Latitude': region.latitude,
+				'Longitude': region.longitude,
+				'LongitudeDelta': region.longitudeDelta,
+				'LatitudeDelta': region.latitudeDelta,
+			}),
+		})
+			.then((response) => response.json())
+
+			.then(async (json) => {
+				// console.log('DATA: ');
+				// console.log(json.Data);
+				var dataWithPoints = json.Data.map(function (object) {
+					var newObject = Object.assign({}, object);
+					newObject.weight = 10;
+					let tempLat = newObject.Latitude;
+					let tempLong = newObject.Longitude;
+					delete newObject.Latitude;
+					delete newObject.Longitude;
+					newObject.latitude = tempLat;
+					newObject.longitude = tempLong;
+					return newObject;
+				});
+
+				this.setState({ points: dataWithPoints });
+				// console.log(json);
+				if (json.Status) {
+				}
+			});
+	}
 	updateLocation(searchString) {
 		console.log('Searching for' + searchString);
 		Geocoder.from(searchString)
@@ -75,6 +117,7 @@ export default class MapScreen extends React.Component {
 				newRegion.latitudeDelta = 0.2;
 				newRegion.longitudeDelta = 0.2;
 				this.setState({ region: newRegion });
+				this.fetchData(newRegion);
 			})
 			.catch((error) => console.warn(error));
 	}
@@ -82,12 +125,12 @@ export default class MapScreen extends React.Component {
 		// Search by address
 
 		// console.log(this.state.region);
-		const { heatmap, month } = this.state;
+		const { heatmap, month, points, region } = this.state;
 		const map =
 			heatmap === true ? (
-				<HeatMap region={this.state.region} />
+				<HeatMap region={region} points={points} />
 			) : (
-				<Map region={this.state.region} />
+				<Map region={region} points={points} />
 			);
 		return (
 			<View>

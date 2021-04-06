@@ -11,40 +11,23 @@ import MapView, { Marker } from 'react-native-maps';
 
 //https://snack.expo.io
 export default class Map extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			// region: {
-			// 	latitude: 37.78825,
-			// 	longitude: -122.4324,
-			// 	latitudeDelta: 0.2,
-			// 	longitudeDelta: 0.2,
-			// },
-			markers: [
-				{
-					latitude: 37.78825,
-					longitude: -122.4324,
-					title: 'Foo Place',
-					description: '1234 Foo Drive',
-				},
-			],
-		};
-	}
-
 	onRegionChange(region) {
 		this.setState({ region });
 	}
 
 	render() {
+		const { region, points } = this.props;
+		// console.log(points);
 		//Error check
-		if (this.props.region.latitude === undefined) return <></>;
+		if (region.latitude === undefined) return <></>;
 
 		return (
 			<MapView
 				style={styles.map}
-				region={this.props.region}
+				region={region}
 				provider={MapView.PROVIDER_GOOGLE}>
-				{this.state.markers.map((marker, index) => {
+				{points.map((marker, index) => {
+					console.log(marker);
 					// console.log(marker);
 					return (
 						<MapView.Marker
