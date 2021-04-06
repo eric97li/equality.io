@@ -27,7 +27,7 @@ export default class Map extends Component {
 				region={region}
 				provider={MapView.PROVIDER_GOOGLE}>
 				{points.map((marker, index) => {
-					console.log(marker);
+					// console.log(marker);
 					// console.log(marker);
 					return (
 						<MapView.Marker
@@ -36,8 +36,8 @@ export default class Map extends Component {
 								latitude: marker.latitude,
 								longitude: marker.longitude,
 							}}
-							title={'title'}
-							description={'description'}
+							title={marker.title}
+							description={marker.description}
 						/>
 					);
 				})}

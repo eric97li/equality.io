@@ -26,10 +26,14 @@ export default class MapScreen extends React.Component {
 			value: d.getMonth() + 12,
 			region: {},
 			searchString: '',
-			points: [],
+			allPoints: [],
+			filteredPoints: [],
+			// aggregatedPoints: [],
 		};
 		this.getButtonText = this.getButtonText.bind(this);
 		this.getMonthByNumber = this.getMonthByNumber.bind(this);
+		// this.aggregatePoints = this.aggregatePoints.bind(this);
+		this.filterByMonth = this.filterByMonth.bind(this);
 	}
 	getButtonText() {
 		const { heatmap } = this.state;
@@ -88,7 +92,7 @@ export default class MapScreen extends React.Component {
 			.then(async (json) => {
 				// console.log('DATA: ');
 				// console.log(json.Data);
-				var dataWithPoints = json.Data.map(function (object) {
+				var allPoints = json.Data.map(function (object) {
 					var newObject = Object.assign({}, object);
 					newObject.weight = 10;
 					let tempLat = newObject.Latitude;
@@ -97,15 +101,48 @@ export default class MapScreen extends React.Component {
 					delete newObject.Longitude;
 					newObject.latitude = tempLat;
 					newObject.longitude = tempLong;
+					newObject.title = newObject.Category;
+					newObject.description = newObject.Details;
+					delete newObject.Category;
+					delete newObject.Details;
 					return newObject;
 				});
 
-				this.setState({ points: dataWithPoints });
+				this.setState({ allPoints, filteredPoints: allPoints });
 				// console.log(json);
 				if (json.Status) {
 				}
 			});
 	}
+	filterByMonth(value) {
+		const { allPoints, month } = this.state;
+		this.setState({ value });
+		const filteredPoints = allPoints.filter(function (point) {
+			return parseInt(point.Month) <= value;
+		});
+		// console.log(filteredPoints);
+		// allPoints.filter(parseInt(point.Month) <= month);
+		this.setState({ filteredPoints });
+	}
+	// aggregatePoints() {
+	// 	const { allPoints } = this.state;
+	// 	let aggregatedPoints = [];
+	// 	for (let i = 0; i < allPoints.length; i++) {
+	// 		let found = false;
+	// 		for (let j = 0; j < aggregatedPoints.length; j++) {
+	// 			if (
+	// 				aggregatedPoints[j].latitude === allPoints[i].latitude &&
+	// 				aggregatedPoints[j].longitude === allPoints[i].longitude
+	// 			) {
+	// 				found = true;
+	// 				aggregatedPoints[j].description += allPoints[i].description;
+	// 				break;
+	// 			}
+	// 		}
+	// 		if (!found) aggregatedPoints.push(allPoints[i]);
+	// 	}
+	// 	this.setState({ aggregatedPoints });
+	// }
 	updateLocation(searchString) {
 		console.log('Searching for' + searchString);
 		Geocoder.from(searchString)
@@ -125,12 +162,12 @@ export default class MapScreen extends React.Component {
 		// Search by address
 
 		// console.log(this.state.region);
-		const { heatmap, month, points, region } = this.state;
+		const { heatmap, month, allPoints, filteredPoints, region } = this.state;
 		const map =
 			heatmap === true ? (
-				<HeatMap region={region} points={points} />
+				<HeatMap region={region} points={filteredPoints} />
 			) : (
-				<Map region={region} points={points} />
+				<Map region={region} points={filteredPoints} />
 			);
 		return (
 			<View>
@@ -138,12 +175,12 @@ export default class MapScreen extends React.Component {
 					{this.getMonthByNumber()}
 				</Text>
 				<Slider
-					style={{ width: '100%', height: 40 }}
+					style={{ width: '90%', marginLeft: '5%', height: 40 }}
 					minimumValue={month - 11}
 					step={1}
 					value={month}
 					maximumValue={month}
-					onValueChange={(value) => this.setState({ value })}
+					onValueChange={(value) => this.filterByMonth(value)}
 					minimumTrackTintColor='#FFFFFF'
 					maximumTrackTintColor='#000000'
 				/>
