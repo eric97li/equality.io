@@ -12,7 +12,7 @@ it('works', () => {
 describe('<App />', () => {
 	it('App has 1 child', () => {
 		const tree = renderer.create(<App />).toJSON();
-		console.log(tree);
+		// console.log(tree);
 		expect(tree.children.length).toBe(1);
 		expect(tree).toMatchSnapshot();
 	});

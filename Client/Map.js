@@ -23,6 +23,7 @@ export default class Map extends Component {
 
 		return (
 			<MapView
+				className='map'
 				style={styles.map}
 				region={region}
 				provider={MapView.PROVIDER_GOOGLE}>
