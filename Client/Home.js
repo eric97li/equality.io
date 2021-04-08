@@ -7,6 +7,8 @@ export default class Home extends Component {
 		this.state = {};
 		this.goToMap = this.goToMap.bind(this);
 		this.goToCreateReport = this.goToCreateReport.bind(this);
+		this.disclaimerInfo = this.disclaimerInfo.bind(this);
+		this.aboutInfo = this.aboutInfo.bind(this);
 	}
 	componentDidMount() {}
 	goToCreateReport = () => {
@@ -14,11 +16,16 @@ export default class Home extends Component {
 		this.props.setCurrentTabScreen('Create Report');
 	};
 	goToMap = () => {
+		console.log('Go to map');
 		this.props.navigation.navigate('Ripple');
 		this.props.setCurrentTabScreen('Incident Map');
 	};
-	aboutInfo() {}
-	disclaimerInfo() {}
+	aboutInfo() {
+		this.props.navigation.navigate('AboutPage');
+	}
+	disclaimerInfo() {
+		this.props.navigation.navigate('Disclaimer');
+	}
 	render() {
 		// console.log(this.props.x);
 		return (
@@ -126,7 +133,7 @@ export default class Home extends Component {
 							alignSelf: 'center',
 							textAlign: 'center',
 						}}
-						onPress={() => this.disclaimerInfo()}>
+						onPress={() => this.props.navigation.navigate('Disclaimer')}>
 						<Text style={{ color: 'black' }}> Disclaimer </Text>
 					</TouchableOpacity>
 				</View>

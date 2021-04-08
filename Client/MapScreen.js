@@ -38,8 +38,8 @@ export default class MapScreen extends React.Component {
 	getButtonText() {
 		const { heatmap } = this.state;
 
-		if (heatmap) return 'View Default Map';
-		else return 'View Heat Map';
+		if (heatmap) return 'Normal Map';
+		else return 'Heatmap';
 	}
 	//Get month by number
 	getMonthByNumber() {
@@ -144,7 +144,7 @@ export default class MapScreen extends React.Component {
 	// 	this.setState({ aggregatedPoints });
 	// }
 	updateLocation(searchString) {
-		console.log('Searching for' + searchString);
+		// console.log('Searching for' + searchString);
 		Geocoder.from(searchString)
 			.then((json) => {
 				var location = json.results[0].geometry.location;
@@ -171,7 +171,7 @@ export default class MapScreen extends React.Component {
 			);
 		return (
 			<View>
-				<Text style={{ textAlign: 'center', fontSize: 30 }}>
+				<Text style={{ textAlign: 'center', fontSize: 20 }}>
 					{this.getMonthByNumber()}
 				</Text>
 				<Slider
@@ -203,20 +203,34 @@ export default class MapScreen extends React.Component {
 						onSubmitEditing={() => this.updateLocation(this.state.searchString)}
 					/>
 				</View>
-				<TouchableOpacity
-					style={styles.button}
-					// onPress={() => this.setState({ heatmap: !heatmap })}>
-					onPress={() =>
-						this.setState(
-							{
+				<View style={styles.row}>
+					<TouchableOpacity
+						style={styles.button}
+						// onPress={() => this.setState({ heatmap: !heatmap })}>
+						onPress={() =>
+							this.setState({
 								heatmap: !this.state.heatmap,
-							} /*, alert('Heatmap not implemented')*/
-						)
-					}>
-					<Text style={{ fontSize: 18, color: 'white' }}>
-						{this.getButtonText()}
-					</Text>
-				</TouchableOpacity>
+							})
+						}>
+						<Text style={{ fontSize: 18, color: 'white' }}>
+							{this.getButtonText()}
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => {
+							this.props.navigation.navigate('Home');
+						}}>
+						<Text style={{ fontSize: 18, color: 'white' }}>Go Home</Text>
+					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() => {
+							this.props.navigation.navigate('Support');
+						}}>
+						<Text style={{ fontSize: 18, color: 'white' }}>SupportInfo</Text>
+					</TouchableOpacity>
+				</View>
 			</View>
 		);
 	}
@@ -226,13 +240,19 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center', // Centered horizontally
 		justifyContent: 'center', //Centered vertically
-		height: '5%',
-		width: 200,
+		height: 44,
+		width: '30%',
 		margin: 5,
 		backgroundColor: 'black',
 		padding: 5,
-		borderRadius: 40,
+		borderRadius: 15,
 		borderWidth: 1,
+	},
+	row: {
+		flex: 1,
+		flexDirection: 'row',
+		marginTop: '5%',
+		// marginBottom: '10%',
 	},
 	input: {
 		padding: 10,
@@ -248,10 +268,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#fff',
+		// marginBottom: '5%',
 	},
 	searchIcon: {
 		padding: 10,
 	},
+
 	input: {
 		flex: 1,
 		paddingTop: 10,

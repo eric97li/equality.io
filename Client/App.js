@@ -9,6 +9,12 @@ import Home from './Home';
 import Report from './Report';
 import MapScreen from './MapScreen';
 import BottomTabContainer from './BottomTabContainer';
+import Disclaimer from './Disclaimer';
+import About from './About';
+import Support from './Support';
+import HelpInfo from './HelpInfo';
+import SupportInfo from './SupportInfo';
+import AboutPage from './AboutPage';
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -50,6 +56,12 @@ export default class App extends Component {
 							/>
 						)}
 					</Stack.Screen>
+					<Stack.Screen name='Disclaimer' component={Disclaimer} />
+					<Stack.Screen name='About' component={About} />
+					<Stack.Screen name='Support' component={Support} />
+					<Stack.Screen name='HelpInfo' component={HelpInfo} />
+					<Stack.Screen name='SupportInfo' component={SupportInfo} />
+					<Stack.Screen name='AboutPage' component={AboutPage} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		);
