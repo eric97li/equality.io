@@ -38,6 +38,19 @@ describe('<MapScreen/>', () => {
 		expect(tree.children[0].children[0]).toBe(month);
 	});
 
+	//On button change, components are correct
+
+	//On slide, the month is accurate
+	it('Slider displays accurate month', async () => {
+		const wrapper = mount(<MapScreen />);
+		console.log(wrapper.find('slider').simulate);
+		// expect(tree.children[0].children[0]).toBe(month);
+	});
+
+	//On slide, the filtering is accurate
+});
+
+describe('<Map/>', () => {
 	const region = {
 		latitude: 37.78825,
 		longitude: -122.4324,
@@ -59,33 +72,14 @@ describe('<MapScreen/>', () => {
 	];
 	it('<Map /> has right props', async () => {
 		const wrapper = mount(<Map region={region} points={points} />);
-		// console.log(wrapper.props().region);
-		// console.log('Children' + wrapper.children().length);
 		expect(wrapper.props().region).toBe(region);
 		expect(wrapper.props().points).toBe(points);
-		// expect(tree.children[0].children[0]).toBe(month);
 	});
 
 	it('<Map /> has one point for every single prop', async () => {
 		const wrapper = mount(<Map region={region} points={points} />);
-		// console.log(wrapper.props().region);
-		console.log(wrapper.find('MapView').to.have);
-		console.log('Children' + wrapper.children().length);
+		expect(wrapper.find('.map').children().length).toBe(2);
 	});
-
-	//On button change, components are correct
-
-	//On slide, the month is accurate
-
-	//On slide, the filtering is accurate
 });
-
-// it('Map has one point for every single prop', async () => {
-// 	const tree = await renderer.create(<Map points = {data} region = {region}/>).toJSON();
-// 	console.log(tree);
-// });
-
-//Map
-// });
 
 //Heatmap has one point for every single prop

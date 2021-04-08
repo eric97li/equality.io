@@ -175,6 +175,7 @@ export default class MapScreen extends React.Component {
 					{this.getMonthByNumber()}
 				</Text>
 				<Slider
+					className='slider'
 					style={{ width: '90%', marginLeft: '5%', height: 40 }}
 					minimumValue={month - 11}
 					step={1}

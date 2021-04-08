@@ -13,6 +13,7 @@ exports[`<MapScreen/> MapScreen originally has 4 children 1`] = `
     April
   </Text>
   <RNCSlider
+    className="slider"
     disabled={false}
     enabled={true}
     inverted={false}
@@ -50,128 +51,6 @@ exports[`<MapScreen/> MapScreen originally has 4 children 1`] = `
     }
     value={15}
   />
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#fff",
-        "flex": 1,
-        "flexDirection": "row",
-        "justifyContent": "center",
-      }
-    }
-  >
-    <Text />
-    <TextInput
-      allowFontScaling={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Enter a Location"
-      rejectResponderTermination={true}
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "color": "#424242",
-          "flex": 1,
-          "paddingBottom": 10,
-          "paddingLeft": 0,
-          "paddingRight": 10,
-          "paddingTop": 10,
-        }
-      }
-      underlineColorAndroid="transparent"
-    />
-  </View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "black",
-        "borderRadius": 40,
-        "borderWidth": 1,
-        "height": "5%",
-        "justifyContent": "center",
-        "margin": 5,
-        "opacity": 1,
-        "padding": 5,
-        "width": 200,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 18,
-        }
-      }
-    >
-      View Heat Map
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`<MapScreen/> MapScreen originally has 5 children 1`] = `
-<View>
-  <Text
-    style={
-      Object {
-        "fontSize": 30,
-        "textAlign": "center",
-      }
-    }
-  >
-    April
-  </Text>
-  <RNCSlider
-    disabled={false}
-    enabled={true}
-    inverted={false}
-    maximumTrackTintColor="#000000"
-    maximumValue={15}
-    minimumTrackTintColor="#FFFFFF"
-    minimumValue={4}
-    onChange={[Function]}
-    onRNCSliderSlidingComplete={null}
-    onRNCSliderSlidingStart={null}
-    onRNCSliderValueChange={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    step={1}
-    style={
-      Array [
-        Object {
-          "height": 40,
-        },
-        Object {
-          "height": 40,
-          "marginLeft": "5%",
-          "width": "90%",
-        },
-      ]
-    }
-    thumbImage={
-      Object {
-        "__packager_asset": true,
-        "height": 1,
-        "scale": 1,
-        "uri": "uri",
-        "width": 1,
-      }
-    }
-    value={15}
-  />
-  <View />
   <View
     style={
       Object {
