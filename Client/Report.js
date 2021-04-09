@@ -10,7 +10,9 @@ export default class Report extends Component {
 		this.state = {
 			incident: "",
 			incidentDetails: "",
-			searchString: ""
+			searchString: "",
+			latitude: 0,
+			longitude: 0
 		};
 	}
 
@@ -34,6 +36,9 @@ export default class Report extends Component {
 				newRegion.longitude = Number(location.lng.toFixed(4));
 				newRegion.latitudeDelta = 0.2;
 				newRegion.longitudeDelta = 0.2;
+				this.setState({searchString: location})
+				this.setState({latitude: newRegion.latitude});
+				this.setState({longitude: newRegion.longitude});
 				this.setState({ region: newRegion });
 			})
 			.catch((error) => console.warn(error));
@@ -41,6 +46,28 @@ export default class Report extends Component {
 
 	submitReport() {
 		alert("Report Submitted!")
+
+		return fetch('https://ripple506.herokuapp.com/reportCreate', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+					"IncidentID": "1460",
+					"Location": this.searchString,
+					"Latitude": this.state.latitude ,
+					"Longitude": this.state.longitude ,
+					"Year": "2020",
+					"Month": "6",
+					"Day": "9",
+					"Details": this.state.incidentDetails,
+					"Category":	this.state.incident
+			})
+			
+		}).then((response)=> {
+			console.log(response.status)
+		})
+		
 	}
 
 	render() {
