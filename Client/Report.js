@@ -16,6 +16,8 @@ export default class Report extends Component {
 
 	componentDidMount() {
 		if (this.props.currentTabScreen != 'Create Report') {
+			this.props.setCurrentTabScreen('Incident Map');
+
 			this.props.navigation.navigate('Incident Map');
 		}
 	}

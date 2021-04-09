@@ -27,7 +27,10 @@ export default class BottomTabContainer extends React.Component {
 						},
 					}}>
 					{(props) => (
-						<Report {...props} currentTabScreen={this.props.currentTabScreen} />
+						<Report {...props} currentTabScreen={this.props.currentTabScreen} 
+						setCurrentTabScreen={(screenName) =>
+							this.props.setCurrentTabScreen(screenName)
+						}/>
 					)}
 				</Tab.Screen>
 				<Tab.Screen
@@ -42,7 +45,9 @@ export default class BottomTabContainer extends React.Component {
 						<MapScreen
 							{...props}
 							currentTabScreen={this.props.currentTabScreen}
-						/>
+							setCurrentTabScreen={(screenName) =>
+								this.props.setCurrentTabScreen(screenName)
+							}						/>
 					)}
 				</Tab.Screen>
 			</Tab.Navigator>
