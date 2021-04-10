@@ -53,6 +53,9 @@ export default class App extends Component {
 							<BottomTabContainer
 								{...props}
 								currentTabScreen={this.state.currentTabScreen}
+								setCurrentTabScreen={(screenName) =>
+									this.setCurrentTabScreen(screenName)
+								}
 							/>
 						)}
 					</Stack.Screen>

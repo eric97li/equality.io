@@ -61,12 +61,16 @@ export default class MapScreen extends React.Component {
 
 		return monthNames[this.state.value % 12]; //if 2
 	}
+	
 	componentDidMount() {
 		this.updateLocation('San Francisco');
-	}
-	componentDidUpdate() {
+
+		// console.log(this.props)
+		console.log(this.props.currentTabScreen);
+		
 		if (this.props.currentTabScreen != 'Incident Map') {
-			this.props.navigate('Create Report');
+			this.props.setCurrentTabScreen('Create Report');
+			this.props.navigation.navigate('Create Report');
 		}
 	}
 	fetchData(region) {
@@ -153,6 +157,7 @@ export default class MapScreen extends React.Component {
 				newRegion.longitude = Number(location.lng.toFixed(4));
 				newRegion.latitudeDelta = 0.2;
 				newRegion.longitudeDelta = 0.2;
+				console.log(newRegion);
 				this.setState({ region: newRegion });
 				this.fetchData(newRegion);
 			})
