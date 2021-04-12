@@ -16,7 +16,7 @@ export default class BottomTabContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this.updateLocation('San Francisco');
+		this.updateLocation('Washington DC');
 	}
 	updateLocation(searchString) {
 		console.log('Update location called');

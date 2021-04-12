@@ -127,7 +127,7 @@ export default class MapScreen extends React.Component {
 		const { allPoints, month } = this.state;
 		this.setState({ value });
 		const filteredPoints = allPoints.filter(function (point) {
-			return parseInt(point.Month) <= value;
+			return parseInt(point.Month) <= (value + 1) % 12;
 		});
 		// console.log(filteredPoints);
 		// allPoints.filter(parseInt(point.Month) <= month);
@@ -180,7 +180,8 @@ export default class MapScreen extends React.Component {
 				<Slider
 					className='slider'
 					style={{ width: '90%', marginLeft: '5%', height: 40 }}
-					minimumValue={month - 11}
+					// minimumValue={month - 11}
+					minimumValue={month - 3}
 					step={1}
 					value={month}
 					maximumValue={month}

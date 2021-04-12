@@ -55,6 +55,8 @@ export default class Report extends Component {
 		await this.updateLocation(this.state.searchString);
 		alert('Report Submitted!');
 
+		let d = new Date(); //Month is indexed by 0
+		console.log();
 		return fetch('https://ripple506.herokuapp.com/reportCreate', {
 			method: 'POST',
 			headers: {
@@ -64,9 +66,9 @@ export default class Report extends Component {
 				'Location': this.state.searchString,
 				'Latitude': this.state.region.latitude,
 				'Longitude': this.state.region.longitude,
-				'Year': '2020',
-				'Month': '6',
-				'Day': '9',
+				'Year': String(d.getFullYear()),
+				'Month': String(d.getMonth() + 1),
+				'Day': String(d.getDate()),
 				'Details': this.state.incidentDetails,
 				'Category': this.state.incident,
 			}),
