@@ -13,7 +13,7 @@ import {
 	StyleSheet,
 	TextInput,
 } from 'react-native';
-Geocoder.init('AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M'); // use a valid API key
+// Geocoder.init('AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M'); // use a valid API key
 
 export default class MapScreen extends React.Component {
 	constructor(props) {
@@ -24,7 +24,7 @@ export default class MapScreen extends React.Component {
 			heapmap: false,
 			month: d.getMonth() + 12,
 			value: d.getMonth() + 12,
-			region: {},
+			// region: {},
 			searchString: '',
 			allPoints: [],
 			filteredPoints: [],
@@ -61,21 +61,26 @@ export default class MapScreen extends React.Component {
 
 		return monthNames[this.state.value % 12]; //if 2
 	}
-	
-	componentDidMount() {
-		this.updateLocation('San Francisco');
 
+	componentDidMount() {
 		// console.log(this.props)
-		console.log(this.props.currentTabScreen);
-		
+		console.log('CDM called');
+		console.log(this.props.region);
+		// console.log(this.props.currentTabScreen);
+		this.fetchData(this.props.region);
 		if (this.props.currentTabScreen != 'Incident Map') {
 			this.props.setCurrentTabScreen('Create Report');
 			this.props.navigation.navigate('Create Report');
 		}
 	}
+	componentDidUpdate(nextProps) {
+		if (nextProps.region !== this.props.region) {
+			this.fetchData(this.props.region);
+		}
+	}
 	fetchData(region) {
-		// console.log('fetching data for: ');
-		// console.log(region);
+		console.log('fetching data for: ');
+		console.log(region);
 		fetch('https://ripple506.herokuapp.com/getReportByLocation', {
 			method: 'POST',
 			headers: {
@@ -147,27 +152,20 @@ export default class MapScreen extends React.Component {
 	// 	}
 	// 	this.setState({ aggregatedPoints });
 	// }
-	updateLocation(searchString) {
-		// console.log('Searching for' + searchString);
-		Geocoder.from(searchString)
-			.then((json) => {
-				var location = json.results[0].geometry.location;
-				let newRegion = {};
-				newRegion.latitude = Number(location.lat.toFixed(4));
-				newRegion.longitude = Number(location.lng.toFixed(4));
-				newRegion.latitudeDelta = 0.2;
-				newRegion.longitudeDelta = 0.2;
-				console.log(newRegion);
-				this.setState({ region: newRegion });
-				this.fetchData(newRegion);
-			})
-			.catch((error) => console.warn(error));
-	}
+
 	render() {
 		// Search by address
 
 		// console.log(this.state.region);
-		const { heatmap, month, allPoints, filteredPoints, region } = this.state;
+		const {
+			heatmap,
+			month,
+			allPoints,
+			filteredPoints /*, region*/,
+		} = this.state;
+		const { region } = this.props;
+		// console.log('REGION:');
+		// console.log(region);
 		const map =
 			heatmap === true ? (
 				<HeatMap region={region} points={filteredPoints} />
@@ -197,7 +195,7 @@ export default class MapScreen extends React.Component {
 						name='search'
 						size={20}
 						color='#000'
-						onPress={() => this.updateLocation(this.state.searchString)}
+						onPress={() => this.props.updateLocation(this.state.searchString)}
 					/>
 					<TextInput
 						style={styles.input}
@@ -205,7 +203,9 @@ export default class MapScreen extends React.Component {
 						onChangeText={(searchString) => {
 							this.setState({ searchString });
 						}}
-						onSubmitEditing={() => this.updateLocation(this.state.searchString)}
+						onSubmitEditing={() =>
+							this.props.updateLocation(this.state.searchString)
+						}
 					/>
 				</View>
 				<View style={styles.row}>
@@ -221,13 +221,7 @@ export default class MapScreen extends React.Component {
 							{this.getButtonText()}
 						</Text>
 					</TouchableOpacity>
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => {
-							this.props.navigation.navigate('Home');
-						}}>
-						<Text style={{ fontSize: 18, color: 'white' }}>Go Home</Text>
-					</TouchableOpacity>
+
 					<TouchableOpacity
 						style={styles.button}
 						onPress={() => {
@@ -246,8 +240,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center', // Centered horizontally
 		justifyContent: 'center', //Centered vertically
 		height: 44,
-		width: '30%',
-		margin: 5,
+		width: '40%',
+		marginRight: '5%',
 		backgroundColor: 'black',
 		padding: 5,
 		borderRadius: 15,
@@ -257,6 +251,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		marginTop: '5%',
+		marginLeft: '10%',
 		// marginBottom: '10%',
 	},
 	input: {
