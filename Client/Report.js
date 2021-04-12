@@ -91,7 +91,7 @@ export default class Report extends Component {
 				}}>
 				<View style={{ marginBottom: '15%' }}></View>
 
-				<View style={{ marginBottom: '15%' }}>
+				<View style={{ marginBottom: '5%' }}>
 					<Text
 						style={{
 							fontSize: 35,
@@ -103,7 +103,6 @@ export default class Report extends Component {
 						Report Incident
 					</Text>
 				</View>
-
 				<DropDownPicker
 					items={[
 						{ label: 'Ableism', value: 'Ableism' },
@@ -122,7 +121,10 @@ export default class Report extends Component {
 					itemStyle={{
 						justifyContent: 'flex-start',
 					}}
-					dropDownStyle={{ backgroundColor: '#fafafa' }}
+					dropDownStyle={{
+						backgroundColor: '#fafafa',
+						height: 140,
+					}}
 					onChangeItem={(item) =>
 						this.setState({
 							incident: item.value,
@@ -130,7 +132,7 @@ export default class Report extends Component {
 					}
 				/>
 
-				<View style={{ marginBottom: '15%' }}></View>
+				<View style={{ marginBottom: 150 }}></View>
 
 				<DropDownPicker
 					items={[
@@ -161,7 +163,7 @@ export default class Report extends Component {
 					}
 				/>
 
-				<View style={{ marginBottom: '15%' }}></View>
+				<View style={{ marginBottom: 150 }}></View>
 
 				<View style={styles.searchSection}>
 					<Ionicons
@@ -181,7 +183,7 @@ export default class Report extends Component {
 					/>
 				</View>
 
-				<View style={{ marginTop: '15%', width: '80%' }}>
+				<View style={{ marginTop: '5%', width: '80%' }}>
 					<TouchableOpacity
 						style={{
 							borderWidth: 1,
