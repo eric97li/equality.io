@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignContent": "center",
+      "alignItems": "center",
+      "alignSelf": "center",
+      "height": "100%",
+      "justifyContent": "center",
+      "width": "50%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "marginTop": "2.5%",
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignItems": "center",
+          "color": "black",
+          "fontSize": 50,
+          "marginBottom": "50%",
+          "textAlign": "center",
+        }
+      }
+    >
+       
+      Ripple
+       
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": "2.5%",
+        "width": "80%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderRadius": 40,
+          "borderWidth": 1,
+          "height": 42,
+          "justifyContent": "center",
+          "marginBottom": "10%",
+          "opacity": 1,
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignItems": "center",
+            "color": "black",
+            "textAlign": "center",
+          }
+        }
+      >
+         
+        Report Discrimination
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": "2.5%",
+        "width": "80%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderRadius": 40,
+          "borderWidth": 1,
+          "height": 42,
+          "justifyContent": "center",
+          "marginBottom": "80%",
+          "opacity": 1,
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignItems": "center",
+            "color": "black",
+            "textAlign": "center",
+          }
+        }
+      >
+         
+        View Discrimination Incident Map
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": "2.5%",
+        "width": "80%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderRadius": 40,
+          "borderWidth": 1,
+          "height": 42,
+          "justifyContent": "center",
+          "opacity": 1,
+          "textAlign": "center",
+          "width": "80%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+         About Ripple 
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": "2.5%",
+        "width": "80%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "white",
+          "borderRadius": 40,
+          "borderWidth": 1,
+          "height": 42,
+          "justifyContent": "center",
+          "opacity": 1,
+          "textAlign": "center",
+          "width": "80%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+         Disclaimer 
+      </Text>
+    </View>
+  </View>
+</View>
+`;
