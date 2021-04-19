@@ -24,62 +24,72 @@ export default class SupportInfo extends Component {
             <View style={styles.center,[{padding:10,backgroundColor:'white',}]} >
             <View style={styles.mt1}>
 				<Text>
-                USCIS: 800-375-5283
+                USCIS: 800-375-5283 www.uscis.gov
+                 </Text>
+			</View>
+			<View style={styles.mt1}>
+				<Text>
+                Disabled community: 562- 803-4606 www.thearc.org
+                 </Text>
+			</View>
+			<View style={styles.mt1}>
+				<Text>
+                PAF: 1-877-696-6775 opa.hhs.gov
                  </Text>
 			</View>
             <View style={styles.mt1}>
                 <Text>
-                Consumer credit consulting service: 800-750-2227
+                Consumer credit consulting service: 800-750-2227 www.credit.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Consumer complaint hotline: 800-952-5225
+                Consumer complaint hotline: 800-952-5225 consumercomplaints.fcc.gov
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Legal Aid Foundation: 213-487-3320
+                Legal Aid Foundation: 213-487-3320 www.legalaidfoundation.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                APAC CPAF hotline: 800-339-3940
+                APAC CPAF hotline: 800-339-3940 www.nurturingchange.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                FEMA: 202-566-1600
+                FEMA: 202-566-1600 www.fema.gov
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                American Red Cross: 213-739-5200
+                American Red Cross: 213-739-5200 www.redcross.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Domestic Violence Hotline: 800-799-7233
+                Domestic Violence Hotline: 800-799-7233 www.thehotline.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Elderly care assistance hotline: 800-843-5678
+                Elderly care assistance hotline: 800-843-5678 www.carelink.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Malaria and neglect in children: 800-540-4000
+                Child abuse and neglect: 800-540-4000 www.cdc.gov
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Centre for missing and exploited children: 800-422-4453
+                Centre for missing and exploited children: 800-422-4453 www.icmec.org
                 </Text>
             </View>
             <View style={styles.mt1}>
                 <Text>
-                Child and family services: 213-427-2700
+                Child and family services: 213-427-2700 www.linkhc.org.au
                 </Text>
             </View>
             <View style={styles.mt1}>
