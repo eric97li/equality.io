@@ -21,15 +21,38 @@ export default class AboutPage extends Component {
 	render() {
 		return (
 			<View style={styles.center}>
-				<TouchableOpacity style={[styles.add_btn,{marginTop:200}]} onPress={()=>{
+				<TouchableOpacity 	style={{
+					        marginTop:'40%',
+							borderWidth: 1,
+							height: 42,
+							width: '80%',
+							justifyContent: 'center',
+							alignItems: 'center',
+							borderRadius: 40,
+							backgroundColor: 'white',
+							alignSelf: 'center',
+							textAlign: 'center',
+						}} onPress={()=>{
 					this.props.navigation.navigate('About');
 				}}>
-                  <Text style={{color:'white'}}>About Ripple Message</Text>
+                  <Text style={{}}>About Ripple Message</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.add_btn} onPress={()=>{
+				<TouchableOpacity 	
+				style={{   
+					 marginTop:'10%',
+							borderWidth: 1,
+							height: 42,
+							width: '80%',
+							justifyContent: 'center',
+							alignItems: 'center',
+							borderRadius: 40,
+							backgroundColor: 'white',
+							alignSelf: 'center',
+							textAlign: 'center',
+						}} onPress={()=>{
 					this.props.navigation.navigate('Disclaimer');
 				}}>
-                  <Text style={{color:'white'}}>Ripple Disclaimer</Text>
+                  <Text style={{}}>Ripple Disclaimer</Text>
 				</TouchableOpacity>
 			</View>
 			);

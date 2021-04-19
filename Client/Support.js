@@ -21,15 +21,42 @@ export default class Support extends Component {
 	render() {
 		return (
             <View style={styles.center}>
-				<TouchableOpacity style={[styles.add_btn,{marginTop:200}]} onPress={()=>{
+				<TouchableOpacity 
+				style={{
+					marginTop:'30%',
+					borderWidth: 1,
+					height: 42,
+					width: '80%',
+					justifyContent: 'center',
+					alignItems: 'center',
+					borderRadius: 40,
+					backgroundColor: 'white',
+					alignSelf: 'center',
+					textAlign: 'center',
+				}}
+				
+				onPress={()=>{
 					this.props.navigation.navigate('HelpInfo');
 				}}>
-                  <Text style={{color:'white'}}>HelpInfo</Text>
+                  <Text style={{}}>HelpInfo</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.add_btn} onPress={()=>{
+				<TouchableOpacity
+				 style={{
+					marginTop:'10%',
+					borderWidth: 1,
+					height: 42,
+					width: '80%',
+					justifyContent: 'center',
+					alignItems: 'center',
+					borderRadius: 40,
+					backgroundColor: 'white',
+					alignSelf: 'center',
+					textAlign: 'center',
+				}}
+				 onPress={()=>{
 					this.props.navigation.navigate('SupportInfo');
 				}}>
-                  <Text style={{color:'white'}}>SupportInfo</Text>
+                  <Text style={{}}>SupportInfo</Text>
 				</TouchableOpacity>
                 {/* <TouchableOpacity style={styles.add_btn} onPress={()=>{
 					this.props.navigation.navigate('Disclaimer');

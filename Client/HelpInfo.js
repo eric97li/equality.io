@@ -28,20 +28,20 @@ export default class HelpInfo extends Component {
 			
 			
 			<View style={styles.mt1}>
-			<Text style={{color:'red',marginRight:20}}>disablity</Text>	
+			<Text style={{color:'red',marginRight:20}}>Disability discrimination</Text>	
             <Text> 
 Disability discrimination refers to the disability caused by the adverse treatment of disabled people. The United States Disabled Persons Act of 1990 (ADA) is a US law prohibiting the abuse of disabled persons with physical or mental defects, which prevents them from engaging in certain activities.
 </Text>
 			</View>
 			<View style={styles.mt1}>
-            <Text style={{color:'red',marginRight:20}}>age discrimination</Text>	
+            <Text style={{color:'red',marginRight:20}}>Age discrimination</Text>	
             <Text> 
             It refers to a view that the elderly are physically or socially weak and therefore discriminate against the elderly. It comes from the stereotype of the elderly. Age discrimination can be accidental or systematic. The first mock exam was first introduced in 1969. It was used by the American Geriatric Robert N. Butler to describe discrimination against the elderly. It was concluded in the same pattern with gender discrimination and racial discrimination.
 </Text>
 			</View>
 
 			<View style={styles.mt1}>
-				<Text style={{color:'red',marginRight:20}}>race xx </Text>
+				<Text style={{color:'red',marginRight:20}}>Racism  </Text>
                 <Text>
                 Racism refers to a person's attitude of contempt, disgust and exclusion towards people other than his own race, which is manifested in speech and behavior.
                 </Text>
