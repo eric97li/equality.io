@@ -237,7 +237,7 @@ export default class MapScreen extends React.Component {
 						onPress={() => {
 							this.props.navigation.navigate('Support');
 						}}>
-						<Text style={{ fontSize: 18, color: 'white' }}>SupportInfo</Text>
+						<Text style={{ fontSize: 18, color: 'white' }}>Support Info</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -267,17 +267,18 @@ const styles = StyleSheet.create({
 	input: {
 		padding: 10,
 		margin: 5,
-		height: 40,
+		height: 60,
 		width: '80%',
 		borderColor: 'black',
 		borderWidth: 1,
 	},
 	searchSection: {
-		flex: 1,
+		// flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#fff',
+		height: 50
 		// marginBottom: '5%',
 	},
 	searchIcon: {

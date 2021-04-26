@@ -53,7 +53,7 @@ class HeatMap extends React.Component {
 let styles = StyleSheet.create({
 	map: {
 		width: Dimensions.get('window').width,
-		height: '75%',
+		height: '70%',
 	},
 });
 
