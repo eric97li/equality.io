@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
 	StyleSheet,
+	ScrollView,
 	TouchableOpacity,
 	TextInput,
 	View,
@@ -82,6 +83,7 @@ export default class Report extends Component {
 
 	render() {
 		return (
+			<ScrollView>
 			<View
 				style={{
 					width: '100%',
@@ -203,6 +205,7 @@ export default class Report extends Component {
 					</TouchableOpacity>
 				</View>
 			</View>
+			</ScrollView>
 		);
 	}
 }
