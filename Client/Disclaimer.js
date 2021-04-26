@@ -27,7 +27,7 @@ export default class Disclaimer extends Component {
 			</View>
 			
 			<View style={styles.mt1}>
-				<Text> 1)1. Ripple cannot guarantee the accuracy of any event published by users.  </Text>
+				<Text> 1) Ripple cannot guarantee the accuracy of any event published by users.  </Text>
 			</View>
 			<View style={styles.mt1}>
 				<Text>2) The events that users publish in ripple only indicate their personal positions and opinions, and do not 
@@ -36,7 +36,7 @@ content on his / her own. All disputes arising from the published content shall 
  Ripple does not bear any legal and joint liability.</Text>
 			</View>
 			<View style={styles.mt1}>
-               <Text>3)  For the network service interruption or other defects caused by force majeure or reasons beyond ripple's 
+               <Text>3) For the network service interruption or other defects caused by force majeure or reasons beyond ripple's 
 control, ripple will not bear any responsibility, but will try its best to reduce the loss and impact caused to users.</Text>
 			</View>
 		  

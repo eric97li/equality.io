@@ -14,6 +14,24 @@ class HeatMap extends React.Component {
 		super(props);
 
 		this.state = {};
+		this.onRegionUpdate = this.onRegionUpdate.bind(this);
+
+	}
+	onRegionUpdate(region){
+		console.log("ORC called");
+		if(region === undefined || region.latitude === undefined) return;
+		// console.log("ORC called");
+
+		let tempRegion = {};
+		tempRegion.latitude = parseFloat(region.latitude.toFixed(3));
+
+		tempRegion.latitudeDelta = parseFloat(region.latitudeDelta.toFixed(3));
+		tempRegion.longitude = parseFloat(region.longitude.toFixed(3));
+		tempRegion.longitudeDelta = parseFloat(region.longitudeDelta.toFixed(3));
+		// console.log(tempRegion);
+
+				this.props.changeRegion(tempRegion);
+
 	}
 
 	render() {
@@ -21,6 +39,8 @@ class HeatMap extends React.Component {
 		// console.log(points);
 		return (
 			<MapView
+				onRegionChangeComplete={region => this.onRegionUpdate(region)}
+
 				provider={MapView.PROVIDER_GOOGLE}
 				style={styles.map}
 				initialRegion={region}>

@@ -15,12 +15,15 @@ export default class BottomTabContainer extends React.Component {
 		this.updateLocation = this.updateLocation.bind(this);
 	}
 
-	componentDidMount() {
-		this.updateLocation('Washington DC');
+	async componentWillMount() {
+		await this.updateLocation('Washington DC');
+		console.log("CDM BTC");
+		console.log("Start region:")
+		console.log(this.state.region);
 	}
-	updateLocation(searchString) {
+	async updateLocation(searchString) {
 		console.log('Update location called');
-		Geocoder.from(searchString)
+		await Geocoder.from(searchString)
 			.then((json) => {
 				var location = json.results[0].geometry.location;
 				let region = {};
@@ -28,6 +31,7 @@ export default class BottomTabContainer extends React.Component {
 				region.longitude = Number(location.lng.toFixed(4));
 				region.latitudeDelta = 0.2;
 				region.longitudeDelta = 0.2;
+				console.log("GETTING INITIAL REGION");
 				console.log(region);
 				this.setState({ region });
 			})

@@ -34,6 +34,7 @@ export default class MapScreen extends React.Component {
 		this.getMonthByNumber = this.getMonthByNumber.bind(this);
 		// this.aggregatePoints = this.aggregatePoints.bind(this);
 		this.filterByMonth = this.filterByMonth.bind(this);
+		this.handleRegionChange = this.handleRegionChange.bind(this);
 	}
 	getButtonText() {
 		const { heatmap } = this.state;
@@ -74,6 +75,9 @@ export default class MapScreen extends React.Component {
 		}
 	}
 	componentDidUpdate(nextProps) {
+		// console.log("CDU");
+		// console.log(nextProps.region);
+		// console.log(this.props.region);
 		if (nextProps.region !== this.props.region) {
 			this.fetchData(this.props.region);
 		}
@@ -153,6 +157,11 @@ export default class MapScreen extends React.Component {
 	// 	this.setState({ aggregatedPoints });
 	// }
 
+	handleRegionChange(region){
+		console.log("changing region");
+		console.log(region);
+		this.props.setCurrentRegion(region);
+	}
 	render() {
 		// Search by address
 
@@ -168,9 +177,9 @@ export default class MapScreen extends React.Component {
 		// console.log(region);
 		const map =
 			heatmap === true ? (
-				<HeatMap region={region} points={filteredPoints} />
+				<HeatMap region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			) : (
-				<Map region={region} points={filteredPoints} />
+				<Map region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			);
 		return (
 			<View>
