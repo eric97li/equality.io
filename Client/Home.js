@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import { TouchableOpacity, ScrollView, TextInput, View, Text } from 'react-native';
 import { NavigationActions } from '@react-navigation/compat';
 export default class Home extends Component {
 	constructor(props) {
@@ -29,6 +29,7 @@ export default class Home extends Component {
 	render() {
 		// console.log(this.props.x);
 		return (
+			<ScrollView>
 			<View
 				style={{
 					width: '50%',
@@ -138,6 +139,7 @@ export default class Home extends Component {
 					</TouchableOpacity>
 				</View>
 			</View>
+			</ScrollView>
 		);
 	}
 }
