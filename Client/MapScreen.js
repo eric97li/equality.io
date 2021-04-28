@@ -173,6 +173,8 @@ export default class MapScreen extends React.Component {
 			filteredPoints /*, region*/,
 		} = this.state;
 		const { region } = this.props;
+		console.log("RENDER:")
+		console.log(region);
 		// console.log('REGION:');
 		// console.log(region);
 		let map =

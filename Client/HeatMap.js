@@ -36,6 +36,8 @@ class HeatMap extends React.Component {
 
 	render() {
 		const { points, region } = this.props;
+		console.log("Heatmap ");
+		console.log(region);
 		// console.log(points);
 		return (
 			<MapView
@@ -43,7 +45,7 @@ class HeatMap extends React.Component {
 
 				provider={MapView.PROVIDER_GOOGLE}
 				style={styles.map}
-				initialRegion={region}>
+				region={region}>
 				<MapView.Heatmap points={this.props.points} />
 			</MapView>
 		);
