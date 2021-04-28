@@ -175,12 +175,16 @@ export default class MapScreen extends React.Component {
 		const { region } = this.props;
 		// console.log('REGION:');
 		// console.log(region);
-		const map =
+		let map =
 			heatmap === true ? (
 				<HeatMap region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			) : (
 				<Map region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			);
+		//Display Loading message if no map is there yet.
+		if(region.latitude === undefined){
+			map = <Text style={{ textAlign: 'center', fontSize: 40, marginBottom: 40 }}>Loading Map...</Text>
+		}
 		return (
 			<View>
 				<Text style={{ textAlign: 'center', fontSize: 20 }}>
