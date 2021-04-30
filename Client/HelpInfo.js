@@ -28,38 +28,38 @@ export default class HelpInfo extends Component {
 			
 			
 			<View style={styles.mt1}>
-			<Text style={{color:'red',marginRight:20}}>Disability discrimination</Text>	
-            <Text> 
+			<Text style={styles.f1}>Disability discrimination</Text>	
+            <Text style={styles.f2}>  
 Disability discrimination refers to the disability caused by the adverse treatment of disabled people. The United States Disabled Persons Act of 1990 (ADA) is a US law prohibiting the abuse of disabled persons with physical or mental defects, which prevents them from engaging in certain activities.
 </Text>
 			</View>
 			<View style={styles.mt1}>
-            <Text style={{color:'red',marginRight:20}}>Age discrimination</Text>	
-            <Text> 
+            <Text style={styles.f1}>Age discrimination</Text>	
+            <Text style={styles.f2}> 
             It refers to a view that the elderly are physically or socially weak and therefore discriminate against the elderly. It comes from the stereotype of the elderly. Age discrimination can be accidental or systematic. The first mock exam was first introduced in 1969. It was used by the American Geriatric Robert N. Butler to describe discrimination against the elderly. It was concluded in the same pattern with gender discrimination and racial discrimination.
 </Text>
 			</View>
 
 			<View style={styles.mt1}>
-				<Text style={{color:'red',marginRight:20}}>Racism  </Text>
-                <Text>
+				<Text style={styles.f1}>Racism  </Text>
+                <Text style={styles.f2}>
                 Racism refers to a person's attitude of contempt, disgust and exclusion towards people other than his own race, which is manifested in speech and behavior.
                 </Text>
 			</View>
 			<View style={styles.mt1}>
-                <Text style={{color:'red',marginRight:20}}>
+                <Text style={styles.f1}>
                 Gender discrimination
                 </Text>
-                <Text>
+                <Text style={styles.f2}>
                 Gender discrimination refers to the prejudice on gender, and refers to the unequal treatment of one gender member to another. Especially the unequal treatment of men to women. The inequality between the sexes results in gender discrimination in the society. But it can also be used to refer to any discrimination caused by gender.
                 </Text>
                 
 			</View> 
 			<View style={styles.mt1}>
-                <Text style={{color:'red',marginRight:20}}>
+                <Text style={styles.f1}>
                 Regional discrimination
                 </Text>
-                <Text>
+                <Text style={styles.f2}>
                 Regional discrimination originates from the gradual formation of mobile society, and urban people are living together with groups from other regions as never before. Regional discrimination is inevitable. If this consciousness is not controlled, the rights of those who are discriminated against will be infringed: from the disdain for dialect on the bus, to the signs that shops do not sell goods from a certain place, and the claims of employers that they do not want people from a certain place, so that the banners pulled out by the police station today are all "logical" developments. This will not only hurt the people in Henan who have asked "who did Henan people provoke", but also the people from Jiangxi, Hunan and Northeast China who have suffered similar injuries in other cities and regions. Nowadays, regional discrimination among citizens has become a universal cultural psychology that must be paid attention to.
                 </Text>
 			</View>
@@ -76,6 +76,15 @@ Disability discrimination refers to the disability caused by the adverse treatme
 }
 
 const styles = StyleSheet.create({
+	f1:{
+		fontSize:20,
+		lineHeight:30,
+		color:'red'
+	  },
+	  f2:{
+		fontSize:16,
+		lineHeight:30,
+	  },
 	mt1:{
 		marginTop:10
 	},

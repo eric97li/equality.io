@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import { TouchableOpacity, ScrollView, TextInput, View, Text } from 'react-native';
 import { NavigationActions } from '@react-navigation/compat';
 export default class Home extends Component {
 	constructor(props) {
@@ -29,6 +29,7 @@ export default class Home extends Component {
 	render() {
 		// console.log(this.props.x);
 		return (
+			<ScrollView>
 			<View
 				style={{
 					width: '50%',
@@ -120,24 +121,8 @@ export default class Home extends Component {
 						<Text style={{ color: 'black' }}> About Ripple </Text>
 					</TouchableOpacity>
 				</View>
-				<View style={{ marginTop: '2.5%', width: '80%' }}>
-					<TouchableOpacity
-						style={{
-							borderWidth: 1,
-							height: 42,
-							width: '80%',
-							justifyContent: 'center',
-							alignItems: 'center',
-							borderRadius: 40,
-							backgroundColor: 'white',
-							alignSelf: 'center',
-							textAlign: 'center',
-						}}
-						onPress={() => this.props.navigation.navigate('Disclaimer')}>
-						<Text style={{ color: 'black' }}> Disclaimer </Text>
-					</TouchableOpacity>
-				</View>
 			</View>
+			</ScrollView>
 		);
 	}
 }
