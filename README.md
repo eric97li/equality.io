@@ -8,6 +8,7 @@ Current Release: Version 3.0 (Final Demo)
 
 ```
 git clone https://github.com/eric97li/ripple.git
+cd ripple
 git checkout v3_final_demo
 ```
 
