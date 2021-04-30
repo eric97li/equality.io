@@ -15,6 +15,9 @@ import Support from './Support';
 import HelpInfo from './HelpInfo';
 import SupportInfo from './SupportInfo';
 import AboutPage from './AboutPage';
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 const Stack = createStackNavigator();
 
 export default class App extends Component {

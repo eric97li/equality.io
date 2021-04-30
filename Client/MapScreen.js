@@ -34,6 +34,7 @@ export default class MapScreen extends React.Component {
 		this.getMonthByNumber = this.getMonthByNumber.bind(this);
 		// this.aggregatePoints = this.aggregatePoints.bind(this);
 		this.filterByMonth = this.filterByMonth.bind(this);
+		this.handleRegionChange = this.handleRegionChange.bind(this);
 	}
 	getButtonText() {
 		const { heatmap } = this.state;
@@ -74,6 +75,9 @@ export default class MapScreen extends React.Component {
 		}
 	}
 	componentDidUpdate(nextProps) {
+		// console.log("CDU");
+		// console.log(nextProps.region);
+		// console.log(this.props.region);
 		if (nextProps.region !== this.props.region) {
 			this.fetchData(this.props.region);
 		}
@@ -153,6 +157,11 @@ export default class MapScreen extends React.Component {
 	// 	this.setState({ aggregatedPoints });
 	// }
 
+	handleRegionChange(region){
+		console.log("changing region");
+		console.log(region);
+		this.props.setCurrentRegion(region);
+	}
 	render() {
 		// Search by address
 
@@ -166,12 +175,16 @@ export default class MapScreen extends React.Component {
 		const { region } = this.props;
 		// console.log('REGION:');
 		// console.log(region);
-		const map =
+		let map =
 			heatmap === true ? (
-				<HeatMap region={region} points={filteredPoints} />
+				<HeatMap region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			) : (
-				<Map region={region} points={filteredPoints} />
+				<Map region={region} points={filteredPoints} changeRegion = {(region) => this.handleRegionChange(region)}  />
 			);
+		//Display Loading message if no map is there yet.
+		if(region.latitude === undefined){
+			map = <Text style={{ textAlign: 'center', fontSize: 40, marginBottom: 40 }}>Loading Map...</Text>
+		}
 		return (
 			<View>
 				<Text style={{ textAlign: 'center', fontSize: 20 }}>
@@ -228,7 +241,7 @@ export default class MapScreen extends React.Component {
 						onPress={() => {
 							this.props.navigation.navigate('Support');
 						}}>
-						<Text style={{ fontSize: 18, color: 'white' }}>SupportInfo</Text>
+						<Text style={{ fontSize: 18, color: 'white' }}>Support Info</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
@@ -258,17 +271,18 @@ const styles = StyleSheet.create({
 	input: {
 		padding: 10,
 		margin: 5,
-		height: 40,
+		height: 60,
 		width: '80%',
 		borderColor: 'black',
 		borderWidth: 1,
 	},
 	searchSection: {
-		flex: 1,
+		// flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#fff',
+		height: 50
 		// marginBottom: '5%',
 	},
 	searchIcon: {
