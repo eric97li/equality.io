@@ -2,13 +2,13 @@
 
 Discrimination Reporting App.
 
-Current Release: Version 2.0
+Current Release: Version 3.0 (Final Demo)
 
 ## Download Instructions
 
 ```
 git clone https://github.com/eric97li/ripple.git
-git checkout v3_final
+git checkout v3_final_demo
 ```
 
 ## Installation instructions
