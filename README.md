@@ -8,7 +8,7 @@ Current Release: Version 2.0
 
 ```
 git clone https://github.com/eric97li/ripple.git
-git checkout v2
+git checkout v3_final
 ```
 
 ## Installation instructions
