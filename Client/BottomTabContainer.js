@@ -7,6 +7,9 @@ import MapScreen from './MapScreen';
 import Geocoder from 'react-native-geocoding';
 import Constants from 'expo-constants';
 import * as Location from 'expo-location';
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 Geocoder.init('AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M'); // use a valid API key
 
@@ -18,7 +21,7 @@ export default class BottomTabContainer extends React.Component {
 	}
 
 	//https://docs.expo.io/versions/latest/sdk/location/
-	async componentWillMount() {
+	async componentDidMount() {
 		if (Platform.OS === 'android' && !Constants.isDevice) {
 			return;
 		}
@@ -44,7 +47,7 @@ export default class BottomTabContainer extends React.Component {
 
 	//Get coordinates of Washington DC
 	async updateLocation(searchString) {
-		console.log('Update location called');
+		// console.log('Update location called');
 		await Geocoder.from(searchString)
 			.then((json) => {
 				var location = json.results[0].geometry.location;
@@ -53,8 +56,8 @@ export default class BottomTabContainer extends React.Component {
 				region.longitude = Number(location.lng.toFixed(4));
 				region.latitudeDelta = 0.2;
 				region.longitudeDelta = 0.2;
-				console.log('GETTING INITIAL REGION');
-				console.log(region);
+				// console.log('GETTING INITIAL REGION');
+				// console.log(region);
 				this.setState({ region });
 			})
 			.catch((error) => console.warn(error));

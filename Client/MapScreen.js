@@ -19,7 +19,6 @@ export default class MapScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		let d = new Date();
-		console.log(d.getMonth() + 12);
 		this.state = {
 			heapmap: false,
 			month: d.getMonth() + 12,
@@ -65,8 +64,8 @@ export default class MapScreen extends React.Component {
 
 	componentDidMount() {
 		// console.log(this.props)
-		console.log('CDM called');
-		console.log(this.props.region);
+		// console.log('CDM called');
+		// console.log(this.props.region);
 		// console.log(this.props.currentTabScreen);
 		this.fetchData(this.props.region);
 		if (this.props.currentTabScreen != 'Incident Map') {
@@ -83,8 +82,8 @@ export default class MapScreen extends React.Component {
 		}
 	}
 	fetchData(region) {
-		console.log('fetching data for: ');
-		console.log(region);
+		// console.log('fetching data for: ');
+		// console.log(region);
 		fetch('https://ripple506.herokuapp.com/getReportByLocation', {
 			method: 'POST',
 			headers: {
@@ -137,29 +136,10 @@ export default class MapScreen extends React.Component {
 		// allPoints.filter(parseInt(point.Month) <= month);
 		this.setState({ filteredPoints });
 	}
-	// aggregatePoints() {
-	// 	const { allPoints } = this.state;
-	// 	let aggregatedPoints = [];
-	// 	for (let i = 0; i < allPoints.length; i++) {
-	// 		let found = false;
-	// 		for (let j = 0; j < aggregatedPoints.length; j++) {
-	// 			if (
-	// 				aggregatedPoints[j].latitude === allPoints[i].latitude &&
-	// 				aggregatedPoints[j].longitude === allPoints[i].longitude
-	// 			) {
-	// 				found = true;
-	// 				aggregatedPoints[j].description += allPoints[i].description;
-	// 				break;
-	// 			}
-	// 		}
-	// 		if (!found) aggregatedPoints.push(allPoints[i]);
-	// 	}
-	// 	this.setState({ aggregatedPoints });
-	// }
 
 	handleRegionChange(region){
-		console.log("changing region");
-		console.log(region);
+		// console.log("changing region");
+		// console.log(region);
 		this.props.setCurrentRegion(region);
 	}
 	render() {
@@ -173,8 +153,8 @@ export default class MapScreen extends React.Component {
 			filteredPoints /*, region*/,
 		} = this.state;
 		const { region } = this.props;
-		console.log("RENDER:")
-		console.log(region);
+		// console.log("RENDER:")
+		// console.log(region);
 		// console.log('REGION:');
 		// console.log(region);
 		let map =

@@ -16,7 +16,7 @@ export default class Home extends Component {
 		this.props.setCurrentTabScreen('Create Report');
 	};
 	goToMap = () => {
-		console.log('Go to map');
+		// console.log('Go to map');
 		this.props.navigation.navigate('Ripple');
 		this.props.setCurrentTabScreen('Incident Map');
 	};
@@ -39,7 +39,7 @@ export default class Home extends Component {
 					alignContent: 'center',
 					alignItems: 'center',
 				}}>
-				<View style={{ marginTop: '2.5%', width: '80%' }}>
+				<View style={{ marginTop: '40%', width: '80%' }}>
 					<Text
 						style={{
 							color: 'black',

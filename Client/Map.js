@@ -17,7 +17,7 @@ export default class Map extends Component {
 		this.onRegionUpdate = this.onRegionUpdate.bind(this);
 	}
 	onRegionUpdate(region){
-		console.log("ORC called");
+		// console.log("ORC called");
 		if(region === undefined || region.latitude === undefined) return;
 		// console.log("ORC called");
 
