@@ -23,11 +23,11 @@ export default class About extends Component {
 			<ScrollView>
                       <View style={{padding:10,backgroundColor:'white',}} >
 			<View style={styles.center}>
-				<Text style={{fontSize:18,fontWeight:'600'}}>Aboutinfo</Text> 
+				{/* <Text style={{fontSize:18,fontWeight:'600'}}>Aboutinfo</Text>  */}
 			</View>
 			
 			<View style={styles.mt1}>
-				<Text> Ripple will be a reporting app to spread and bring awareness to discrimination and violations of
+				<Text style={styles.f1}> Ripple will be a reporting app to spread and bring awareness to discrimination and violations of
 rights (e.g., racial equality, rape, abuse, gender, Black Lives Matter). Through live data
 accumulated reported by people here in the U.S. and the world, violations can be visualized,
 mapped, and reported to instigate change. Users can create reports which are then posted as
@@ -47,6 +47,10 @@ be developing an app to fight the scourge of racism. Give a voice to the oppress
 }
 
 const styles = StyleSheet.create({
+	f1:{
+      fontSize:20,
+	  lineHeight:30,
+	},
 	mt1:{
 		marginTop:10
 	},

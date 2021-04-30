@@ -121,23 +121,6 @@ export default class Home extends Component {
 						<Text style={{ color: 'black' }}> About Ripple </Text>
 					</TouchableOpacity>
 				</View>
-				<View style={{ marginTop: '2.5%', width: '80%' }}>
-					<TouchableOpacity
-						style={{
-							borderWidth: 1,
-							height: 42,
-							width: '80%',
-							justifyContent: 'center',
-							alignItems: 'center',
-							borderRadius: 40,
-							backgroundColor: 'white',
-							alignSelf: 'center',
-							textAlign: 'center',
-						}}
-						onPress={() => this.props.navigation.navigate('Disclaimer')}>
-						<Text style={{ color: 'black' }}> Disclaimer </Text>
-					</TouchableOpacity>
-				</View>
 			</View>
 			</ScrollView>
 		);
