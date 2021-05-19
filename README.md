@@ -1,4 +1,4 @@
-# Ripple
+# Equality.io
 
 Discrimination Reporting App.
 
