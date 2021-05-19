@@ -27,17 +27,17 @@ export default class Disclaimer extends Component {
 			</View>
 			
 			<View style={styles.mt1}>
-				<Text style={styles.f1}> 1) Ripple cannot guarantee the accuracy of any event published by users.  </Text>
+				<Text style={styles.f1}> 1) Equality.io cannot guarantee the accuracy of any event published by users.  </Text>
 			</View>
 			<View style={styles.mt}>
-				<Text style={styles.f1}>2) The events that users publish in Ripple only indicate their personal positions and opinions, and do not 
-represent the positions or opinions of Ripple. As an event publisher, he / she shall be responsible for the published 
+				<Text style={styles.f1}>2) The events that users publish in Equality.io only indicate their personal positions and opinions, and do not 
+represent the positions or opinions of Equality.io. As an event publisher, he / she shall be responsible for the published 
 content on his / her own. All disputes arising from the published content shall be borne by the publisher of the content.
- Ripple does not bear any legal and joint liability.</Text>
+Equality.io does not bear any legal and joint liability.</Text>
 			</View>
 			<View style={styles.mt1}>
-               <Text style={styles.f1}>3) For the network service interruption or other defects caused by force majeure or reasons beyond ripple's 
-control, Ripple will not bear any responsibility, but will try its best to reduce the loss and impact caused to users.</Text>
+               <Text style={styles.f1}>3) For the network service interruption or other defects caused by force majeure or reasons beyond Equality.io's 
+control, Equality.io will not bear any responsibility, but will try its best to reduce the loss and impact caused to users.</Text>
 			</View>
 		  
 				</View>

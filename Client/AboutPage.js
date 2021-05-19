@@ -35,7 +35,7 @@ export default class AboutPage extends Component {
 						}} onPress={()=>{
 					this.props.navigation.navigate('About');
 				}}>
-                  <Text style={{}}>About Ripple Message</Text>
+                  <Text style={{}}>About Equality.io</Text>
 				</TouchableOpacity>
 				<TouchableOpacity 	
 				style={{   
@@ -52,7 +52,7 @@ export default class AboutPage extends Component {
 						}} onPress={()=>{
 					this.props.navigation.navigate('Disclaimer');
 				}}>
-                  <Text style={{}}>Ripple Disclaimer</Text>
+                  <Text style={{}}>Equality.io Disclaimer</Text>
 				</TouchableOpacity>
 			</View>
 			);

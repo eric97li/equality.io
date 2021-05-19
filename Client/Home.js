@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, ScrollView, TextInput, View, Text } from 'react-native';
+import { ImageBackground, TouchableOpacity, ScrollView, StyleSheet, TextInput, View, Text } from 'react-native';
 import { NavigationActions } from '@react-navigation/compat';
 export default class Home extends Component {
 	constructor(props) {
@@ -12,12 +12,12 @@ export default class Home extends Component {
 	}
 	componentDidMount() {}
 	goToCreateReport = () => {
-		this.props.navigation.navigate('Ripple');
+		this.props.navigation.navigate('Equality.io');
 		this.props.setCurrentTabScreen('Create Report');
 	};
 	goToMap = () => {
 		// console.log('Go to map');
-		this.props.navigation.navigate('Ripple');
+		this.props.navigation.navigate('Equality.io');
 		this.props.setCurrentTabScreen('Incident Map');
 	};
 	aboutInfo() {
@@ -28,7 +28,12 @@ export default class Home extends Component {
 	}
 	render() {
 		// console.log(this.props.x);
+
 		return (
+			<ImageBackground
+			source={require("./assets/mlk-statue.jpg")}
+			 style={{width: '100%',opacity:0.95, height: '100%'}}
+		   >
 			<ScrollView>
 			<View
 				style={{
@@ -39,17 +44,18 @@ export default class Home extends Component {
 					alignContent: 'center',
 					alignItems: 'center',
 				}}>
-				<View style={{ marginTop: '40%', width: '80%' }}>
+	 
+				<View style={{ marginTop: '40%', width: '100%' }}>
 					<Text
 						style={{
-							color: 'black',
+							color: '#8b008b',
 							alignItems: 'center',
 							textAlign: 'center',
 							marginBottom: '50%',
-							fontSize: 50,
+							fontSize: 41,
 						}}>
 						{' '}
-						Ripple{' '}
+						Equality.io{' '}
 					</Text>
 				</View>
 				<View style={{ marginTop: '2.5%', width: '80%' }}>
@@ -114,15 +120,20 @@ export default class Home extends Component {
 							alignItems: 'center',
 							borderRadius: 40,
 							backgroundColor: 'white',
+							alignItems: 'center',
 							alignSelf: 'center',
 							textAlign: 'center',
 						}}
 						onPress={() => this.aboutInfo()}>
-						<Text style={{ color: 'black' }}> About Ripple </Text>
+						<Text style={{ color: 'black' }}> 
+						{' '} 
+						About Equality.io {' '}</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 			</ScrollView>
+			</ImageBackground>
 		);
 	}
 }
+

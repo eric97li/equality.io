@@ -38,7 +38,7 @@ export default class Support extends Component {
 				onPress={()=>{
 					this.props.navigation.navigate('HelpInfo');
 				}}>
-                  <Text style={{}}>HelpInfo</Text>
+                  <Text style={{}}>Help Info</Text>
 				</TouchableOpacity>
 				<TouchableOpacity
 				 style={{
@@ -56,7 +56,7 @@ export default class Support extends Component {
 				 onPress={()=>{
 					this.props.navigation.navigate('SupportInfo');
 				}}>
-                  <Text style={{}}>SupportInfo</Text>
+                  <Text style={{}}>Support Info</Text>
 				</TouchableOpacity>
                 {/* <TouchableOpacity style={styles.add_btn} onPress={()=>{
 					this.props.navigation.navigate('Disclaimer');

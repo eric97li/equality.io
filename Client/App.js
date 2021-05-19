@@ -36,7 +36,7 @@ export default class App extends Component {
 		return (
 			<NavigationContainer>
 				<Stack.Navigator>
-					<Stack.Screen name='Home' options={{ title: 'Ripple' }}>
+					<Stack.Screen name='Home' options={{ title: 'Equality.io' }}>
 						{(props) => (
 							<Home
 								{...props}
@@ -51,7 +51,7 @@ export default class App extends Component {
 						name='Ripple'
 						component={BottomTabContainer}
 						initialScreen={5}></Stack.Screen> */}
-					<Stack.Screen name='Ripple'>
+					<Stack.Screen name='Equality.io'>
 						{(props) => (
 							<BottomTabContainer
 								{...props}

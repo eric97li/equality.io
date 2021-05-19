@@ -23,7 +23,7 @@ export default class HelpInfo extends Component {
 			<ScrollView>
                       <View style={{padding:10,backgroundColor:'white',}} >
 			<View style={styles.center}>
-				<Text style={{fontSize:18,fontWeight:'600'}}>HelpInfo</Text>
+				<Text style={{fontSize:18,fontWeight:'600'}}>Help Info</Text>
 			</View>
 			
 			

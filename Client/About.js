@@ -27,14 +27,12 @@ export default class About extends Component {
 			</View>
 			
 			<View style={styles.mt1}>
-				<Text style={styles.f1}> Ripple will be a reporting app to spread and bring awareness to discrimination and violations of
+				<Text style={styles.f1}> Equality.io is a reporting app to spread and bring awareness to discrimination and violations of
 rights (e.g., racial equality, rape, abuse, gender, Black Lives Matter). Through live data
 accumulated reported by people here in the U.S. and the world, violations can be visualized,
 mapped, and reported to instigate change. Users can create reports which are then posted as
-violation incidences on a map. Areas of hotspots/heatmaps, time/dates, locations will be
-visualized on the map. This project will be exciting to implement in that it will use many
-technologies, full stack, mobile, database, cloud, data visualization, APIs, and best of all you will
-be developing an app to fight the scourge of racism. Give a voice to the oppressed!</Text>
+violation incidences on a map. Areas of hotspots/heatmaps, time/dates, and location filters are
+visualized on a world map. </Text>
 			</View>
 			
 			
