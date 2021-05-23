@@ -1,39 +1,42 @@
 {
-	"expo": {
-		"name": "ripple",
-		"slug": "ripple",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon.png",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"updates": {
-			"fallbackToCacheTimeout": 0
-		},
-		"assetBundlePatterns": ["**/*"],
-		"ios": {
-			"supportsTablet": true,
-			"config": {
-				"googleMapsApiKey": "AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M"
-			}
-		},
-
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#FFFFFF"
-			},
-			"config": {
-				"googleMaps": {
-					"apiKey": "AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M"
-				}
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "ripple",
+    "slug": "ripple",
+    "version": "1.0.0",
+    "sdkVersion": "41.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M"
+      }
+    },
+    "android": {
+      "package": "com.eric97li.equality.io",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCeGW7SfROh0vU4a2P16hfYOtv-62nn18M"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
 }
