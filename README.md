@@ -1,15 +1,13 @@
-# Ripple
+# Equality.io
 
-Discrimination Reporting App.
+Discrimination Reporting App. Founder: Eric Li
 
 Current Release: Version 3.0 (Final Demo)
 
 ## Download Instructions
 
 ```
-git clone https://github.com/eric97li/ripple.git
-cd ripple
-git checkout v3_final_demo
+git clone https://github.com/eric97li/equality.io.git
 ```
 
 ## Installation instructions
@@ -32,4 +30,4 @@ For your mobile device, scan the QR code and view the application on the phone.
 
 ## Contributors
 
-Titus Smith, Eric Li, Junyu Wang, Kerui Wang, Penghai Wei, Sunjun Gu
+ Eric Li, Titus Smith, Junyu Wang, Kerui Wang, Penghai Wei, Sunjun Gu
